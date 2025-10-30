@@ -1,0 +1,24 @@
+managed implementation in class zbp_i_salesorder_header unique;
+
+define behavior for ZI_SALESORDER_HEADER
+persistent table zso_header
+lock master
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create, readonly : update ) SalesOrderID;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+
+  mapping for zso_header
+  {
+    SalesOrderID   = salesorderid;
+    CustomerName   = customername;
+    OrderDate      = orderdate;
+    CreatedBy      = created_by;
+    CreatedAt      = created_at;
+    LastChangedBy  = last_changed_by;
+    LastChangedAt  = last_changed_at;
+  }
+}

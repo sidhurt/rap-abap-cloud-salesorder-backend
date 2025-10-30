@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Sales Orders'
+define service ZUI_SALESORDER_SERVICE {
+  expose ZI_SALESORDER_HEADER;
+  expose ZI_SALESORDER_ITEM;
+}

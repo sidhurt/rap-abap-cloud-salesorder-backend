@@ -1,0 +1,27 @@
+managed implementation in class zbp_i_salesorder_item unique;
+
+define behavior for ZI_SALESORDER_ITEM
+persistent table zso_item
+lock master
+{
+  association _Header;
+
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create, readonly : update ) SalesOrderID, SalesOrderItem;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+
+  mapping for zso_item
+  {
+    SalesOrderID    = salesorderid;
+    SalesOrderItem  = salesorderitem;
+    ProductName     = productname;
+    Quantity        = quantity;
+    CreatedBy       = created_by;
+    CreatedAt       = created_at;
+    LastChangedBy   = last_changed_by;
+    LastChangedAt   = last_changed_at;
+  }
+}
